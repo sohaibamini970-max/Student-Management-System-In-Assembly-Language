@@ -304,7 +304,7 @@ COURSE_LOOP:
 
     MOV DL,marksBuf+3
     SUB DL,'0'
-    ADD AL,DL              ; AL = full mark (0–99)
+    ADD AL,DL              ; AL = full mark (0â€“99)
 
     MOV [DI],AL
 
@@ -1121,6 +1121,7 @@ UPM_PRINT_COURSE_DONE:
     DISPLAY marksMsg
     LEA DX,marksBuf
     CALL READ_BUFFER
+    NEWLINE
 
     ; calculate mark storage address
     MOV AX,BX
@@ -1150,5 +1151,6 @@ UPM_DONE:
 EXIT:
     MOV AH,4Ch
     INT 21h
+
 
 END MAIN
